@@ -10,11 +10,11 @@ body {
 	font-family: "Nunito", "Arial", "Helvetica", sans-serif;
 }
 
-.container {
-	padding: 20px calc(50% - 500px);
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 40px;
-}
+/*.container {*/
+/*	padding: 20px calc(50% - 500px);*/
+/*	display: grid;*/
+/*	grid-template-columns: repeat(3, 1fr);*/
+/*	gap: 40px;*/
+/*}*/
 
 

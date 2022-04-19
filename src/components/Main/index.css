@@ -3,19 +3,7 @@ main {
 
 }
 
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 10px;
-}
 
-nav {
-    display: flex;
-    gap: 10px;
 
-}
-a {
-    color: inherit;
-    text-decoration: none;
-    padding: 10px;
-}
+
+

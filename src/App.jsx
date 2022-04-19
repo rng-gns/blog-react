@@ -11,8 +11,8 @@ import Login from "./pages/Login"
 import Post from "./pages/Post";
 
 const App = () => {
-    const [searchText, changeText]=useState("");
-    const [searchCnt, setCnt]= useState("0")
+    const [searchText, changeText] = useState("");
+    const [searchCnt, setCnt] = useState(0)
     return (
         <div className='container'>
             <Header searchText={searchText} changeText={changeText}/>
@@ -22,7 +22,7 @@ const App = () => {
             </nav>
             <Routes>
                 <Route path="/" element={<Home search={searchText} setCnt={setCnt}/>} />
-                <Route path="/catalog" element={<Catalog searchText={searchText} setCnt={setCnt}/>} />
+                <Route path="/catalog" element={<Catalog searchText={searchText} setCnt={setCnt} searchCnt={searchCnt}/>} />
                 <Route path="/post/:id" element={<Post/>}/>
                 <Route path="/login" element={<Login searchText={searchText} setCnt={setCnt}/>}/>
                 <Route path="/registration" element={<Registration searchText={searchText} setCnt={setCnt}/>}/>

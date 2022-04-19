@@ -1,13 +1,17 @@
 import React from "react";
 import "./index.css";
-import Slider from "../Slider";
-import firstSlider from "./../../img/firstSlider.png"
+import Slider from "../../components/Slider"
+
 
 const Main= ()=> {
 
     return (
         <main>
-          <Slider pic={firstSlider} title={"Добро пожаловать в мой блог"}/>
+          <Slider title1={"Добро пожаловать в мой блог"}
+                  title2={"Блог для родителей о детях"}
+                  title3={"Сделано с любовью"}
+
+          />
         </main>
     )
 }

@@ -15,15 +15,15 @@ const Footer= () => {
                 <ul className="footer__group">
                     <li><a href="">Каталог постов</a></li>
                     <li><a href="">Коллекция цитат</a></li>
-                    <li><a href="">Дайджест новостей</a></li>
-                    <li><a href="">Отзывы</a></li>
+                    <li><a href=""></a>Наши авторы</li>
+                    <li><a href=""></a>Дайджест новостей</li>
                 </ul>
 
                 <ul className="footer__group">
-                    <li><a href="">Коллекция цитат</a></li>
+                    <li><a href="">О нас</a></li>
                     <li><a href="">Часто спрашивают</a></li>
+                    <li><a href="">Отзывы</a></li>
                     <li><a href="">Обратная связь</a></li>
-                    <li><a href="">Контакты</a></li>
                 </ul>
                 <ul>
                     <h3>Мы на связи</h3>

@@ -7,6 +7,7 @@ import data from "../../data.json";
 const Posts= ({search, setCnt})=> {
     const cards = data.filter(el => el.title.toLowerCase().includes(search.toLowerCase()));
     setCnt(cards.length);
+
     return (
         <main>
            <div className="cards-container">

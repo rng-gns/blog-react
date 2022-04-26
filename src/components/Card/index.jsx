@@ -19,7 +19,7 @@ const  Card= (props)=> {
             <a className="card__author">{props.author}</a>
             <div className="card__created">{props.created}</div>
             <div className="card__tags">{props.tags}</div>
-            <Link  to={{pathname: `/post/${props.id}`}}>Читать дальше</Link>
+            <Link className="read" to={{pathname: `/post/${props.id}`}}>Читать дальше</Link>
 
         </div>
     )

@@ -57,4 +57,10 @@ button {
     border-radius: 12px;
 
 }
+#info {
+
+    padding: 40px calc(50% - 696px);
+
+}
+
 

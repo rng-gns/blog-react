@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login"
 import Post from "./pages/Post";
+import Personal from "./pages/Personal";
 
 const App = () => {
     const [searchText, changeText] = useState("");
@@ -19,13 +20,15 @@ const App = () => {
             <nav>
                 <Link to="/">Главная страница</Link>
                 <Link to="/catalog">Каталог постов</Link>
+                <Link to="/personal">Личный кабинет пользователя</Link>
             </nav>
             <Routes>
                 <Route path="/" element={<Home search={searchText} setCnt={setCnt}/>} />
                 <Route path="/catalog" element={<Catalog searchText={searchText} setCnt={setCnt} searchCnt={searchCnt}/>} />
                 <Route path="/post/:id" element={<Post/>}/>
-                <Route path="/login" element={<Login searchText={searchText} setCnt={setCnt}/>}/>
-                <Route path="/registration" element={<Registration searchText={searchText} setCnt={setCnt}/>}/>
+                <Route path="/login" element={<Login />}/>
+                <Route path="/registration" element={<Registration/>}/>
+                <Route path="/personal" element={<Personal/>}/>
             </Routes>
 
             <Footer/>

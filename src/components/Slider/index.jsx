@@ -27,13 +27,14 @@ const Slider = (props) => {
         backgroundRepeat: "no-repeat",
         backgroundColor: "#fff"
     };
+
     const img = [
         <div className="slider__img" key={Slider1} style={st1}> <h2 className="slider__title"> {props.title1}</h2></div> ,
         <div className="slider__img" key={Slider2} style={st2}> <h2 className="slider__title"> {props.title2}</h2></div>,
         <div className="slider__img" key={Slider3} style={st3}> <h2 className="slider__title">{props.title3}</h2></div>,
         ]
 
-        const [activeIndex, setActiveIndex] = useState(0);
+        const [activeIndex, setActiveIndex] = useState(2);
 
 // Хук Effect
         useEffect(() => {

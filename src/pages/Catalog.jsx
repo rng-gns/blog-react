@@ -3,6 +3,7 @@ import React from "react";
 import Main from "../components/Main"
 import Posts from "../components/Posts";
 
+
 const Catalog = ({searchText, setCnt, searchCnt}) => {
     const searchDescription = function(searchCnt) {
         if(searchCnt === 0) {

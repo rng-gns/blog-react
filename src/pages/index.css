@@ -57,7 +57,7 @@ button {
     border-radius: 12px;
 
 }
-#info {
+.info-container {
 
     padding: 40px calc(50% - 696px);
 

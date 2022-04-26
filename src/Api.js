@@ -57,6 +57,16 @@ class Api {
             }
         }).then(responseHandler);
     }
+    editProfile(body) {
+        return fetch(`${this.path}/users/me`, {
+            method: "patch",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": `Bearer ${this.token}`
+            },
+            body: JSON.stringify(body)
+        }).then(responseHandler);
+    }
 }
 
 const config = {

@@ -1,0 +1,50 @@
+.banner-card {
+    border-radius: 10px;
+    display: grid;
+    animation-duration: 1s;
+    /*gap: 20px;*/
+    /*color: white;*/
+}
+.banner-card h2 {
+    margin: 0;
+    width: 50%;
+    font-size: 32px;
+    font-weight: 200;
+
+}
+.banner-card p {
+    margin: 0;
+    width: 50%;
+    font-size: 20px;
+    justify-content: center;
+
+
+}
+
+.banner-card.left{
+    animation-name: bannerInLeft;
+}
+.banner-card.right{
+    animation-name: bannerInRight;
+}
+
+@keyframes bannerInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes bannerInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -57,10 +57,102 @@ button {
     border-radius: 12px;
 
 }
-.info-container {
+.info-container, .catalog, .favorites, .page {
 
-    padding: 40px calc(50% - 696px);
+    padding: 10px calc(50% - 696px);
 
 }
+.likes {
+    width: 30px;
+
+
+
+}
+.page-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px;
+}
+.page-container>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+.page-container>.active {
+    color: forestgreen;
+    border: 2px solid;
+}
+.modal-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1010;
+    background: rgba(0,0,0,.5);
+
+}
+.modal-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    /* отступы при необходимости */
+    padding: 20px 50px 20px 20px;
+
+    /* прокрутка */
+    overflow: auto;
+
+
+}
+
+.left-content {
+    display:inline;
+    float:left;
+    margin-left: 26px;
+    padding: 10px;
+    width: 42%;
+    border:none;
+}
+.right-content {
+
+}
+
+#edit-post textarea{
+    overflow:auto;
+    width:100%;
+    height:200px;
+}
+.cancel {
+    background-color: red;
+}
+
+.modal-wrap{
+    display: none;
+}
+
+.modal-wrap.show{
+    display: block;
+}
+.post-likes {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
+
 
 

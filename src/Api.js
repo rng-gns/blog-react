@@ -1,5 +1,4 @@
-import Personal from "./pages/Personal";
-import Registration from "./pages/Registration";
+
 
 const responseHandler = res => {
     console.log(res);
@@ -30,7 +29,7 @@ class Api {
 
     registration(body) {
         return fetch(`${this.path}/signup`, {
-            method: "post",
+            method: "POST",
             headers: {
                 "Content-Type": "Application/json"
 
@@ -41,7 +40,7 @@ class Api {
 
     login(body) {
         return fetch(`${this.path}/signin`, {
-            method: "post",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -50,7 +49,7 @@ class Api {
     }
     personal() {
         return fetch(`${this.path}/users/me`, {
-            method: "get",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "authorization": `Bearer ${this.token}`
@@ -59,10 +58,45 @@ class Api {
     }
     editProfile(body) {
         return fetch(`${this.path}/users/me`, {
-            method: "patch",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 "authorization": `Bearer ${this.token}`
+            },
+            body: JSON.stringify(body)
+        }).then(responseHandler);
+    }
+    postSearch(query) {
+        return fetch(`${this.path}/posts/search?query=${query}`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
+    }
+    setPostLike(id, isLike) {
+        return fetch(`${this.path}/posts/likes/${id}`, {
+            method: isLike ? "DELETE" : "PUT",
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
+    }
+    createPost(body) {
+        return fetch(`${this.path}/posts`, {
+            method: "POST",
+            headers: {
+                "authorization": `Bearer ${this.token}`,
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify(body)
+        }).then(responseHandler);
+    }
+    editPost(body) {
+        return fetch(`${this.path}/posts/${id}`, {
+            method: "PATCH",
+            headers: {
+                "authorization": `Bearer ${this.token}`,
+                "Content-Type": "Application/json"
             },
             body: JSON.stringify(body)
         }).then(responseHandler);
@@ -71,9 +105,8 @@ class Api {
 
 const config = {
     path: "https://api.react-learning.ru",
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjYwNzJkZDBjZGQ3ZDNmZDUyZjg1ZjMiLCJpYXQiOjE2NTA0ODg4OTcsImV4cCI6MTY4MjAyNDg5N30.vbNQaQcWRd0FvC2iMYEJoocoJ6g33G1RbC9cGKctKFE"
+    token: localStorage.getItem("token")
 }
-
 const api = new Api(config);
 
 export default api;

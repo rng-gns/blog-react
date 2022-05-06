@@ -1,12 +1,19 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 import api from "../Api";
+import icFav from "../assets/like_fill.svg";
+import {Link} from "react-router-dom";
+import CreatePost from "./CreatePost";
 
-const Personal = () => {
+
+const Personal = ({likes, updFav}) => {
 
     const [info, setInfo] = useState([]);
     const [name, changeName] = useState("");
     const [about, changeAbout] = useState("");
+
+    const [showModal, changeModalShow] = useState(false);
+
     useEffect(() => {
         api.personal().then(data => {
             console.log(data);
@@ -14,7 +21,16 @@ const Personal = () => {
             changeAbout(data.about);
             changeName(data.name);
         })
-    }, [])
+
+        let user =localStorage.getItem("user");
+        api.getPostList().then(data => {
+            console.log(data);
+            //updateCards(data);
+            // updateCards(data);
+            updFav(data.filter(el => el.likes.includes(user)));
+        });
+    }, []);
+
     const st = {
         backgroundImage: `url(${info.avatar})`,
         backgroundSize: "cover",
@@ -38,10 +54,25 @@ const Personal = () => {
 
         });
     }
+    const handlerModal = () => {
+        changeModalShow(!showModal);
+    }
+
     return (
         <div className="info-container">
             <h1>Личный кабинет пользователя</h1>
             <div className="avatar" style={st}></div>
+            <div>Избранное
+                <Link to="/favorites">
+                    <img className="likes" src={icFav} alt="Избранные посты"/>
+                    {likes}
+                </Link>
+            </div>
+
+                <Link to="/MyPosts">Мои посты</Link>
+
+
+
             <form id="info" onSubmit={handler}>
 
                 <div className="form">
@@ -57,8 +88,13 @@ const Personal = () => {
                 </div>
 
                 <button type="submit">Сохранить</button>
-
             </form>
+
+            <div className="actions">
+                <button onClick={handlerModal}>Создать пост</button>
+            </div>
+
+            <CreatePost showModal={showModal} closeModal={handlerModal}/>
 
         </div>
 

@@ -5,6 +5,7 @@ import './index.css';
 import Search from "../Search";
 
 const Header = ({searchText, changeText}) => {
+
     return (
         <header>
             <Logo/>
@@ -13,6 +14,13 @@ const Header = ({searchText, changeText}) => {
                 <Link to="/login">Войти</Link>
                 <Link to="/registration">Регистрация</Link>
             </nav>
+            <div className="personal-menu">
+                <ul className="menu__group">
+                    <li><a href="">Редактировать профиль</a></li>
+                    <li><a href="">Избранное</a></li>
+                </ul>
+
+            </div>
         </header>
     )
 }

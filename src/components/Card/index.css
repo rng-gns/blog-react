@@ -6,11 +6,14 @@
     gap: 5px;
     height: 500px;
     width: 300px;
+    cursor: pointer;
+    position: relative;
 
 }
 .card__image {
     height: 200px;
     background-color: lightpink;
+    margin-top: 25px;
 }
 .card__title {
     font-weight: bold;
@@ -18,7 +21,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
+.card__text{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .read {
     color: deepskyblue;
 }
+.card_like {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
+.edit {
+    color: green;
+}
+.card__tags {
+    border-style: solid; /* Стиль рамки вокруг параграфа */
+    border-width: 1px 1px 1px 1px; /* Толщина границы */
+    padding: 7px;
+    background-color: cyan;
+}
+
+
+

@@ -47,7 +47,7 @@ const Slider = (props) => {
                     // Возвращаем индекс
                     return res
                 })
-            }, 5000)
+            }, 4000)
             // Выключаем интервал
             return () => clearInterval()
         }, [])

@@ -11,6 +11,8 @@
 		"start": "webpack serve"
 	},
 	"dependencies": {
+		"@mdi/js": "^6.6.96",
+		"@mdi/react": "^1.6.0",
 		"core-js": "^3.21.1",
 		"normalize.css": "^8.0.1",
 		"react": "^17.0.2",

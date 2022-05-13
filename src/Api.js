@@ -66,13 +66,7 @@ class Api {
             body: JSON.stringify(body)
         }).then(responseHandler);
     }
-    postSearch(query) {
-        return fetch(`${this.path}/posts/search?query=${query}`, {
-            headers: {
-                "authorization": `Bearer ${this.token}`
-            }
-        }).then(responseHandler);
-    }
+
     setPostLike(id, isLike) {
         return fetch(`${this.path}/posts/likes/${id}`, {
             method: isLike ? "DELETE" : "PUT",
@@ -81,6 +75,7 @@ class Api {
             }
         }).then(responseHandler);
     }
+
     createPost(body) {
         return fetch(`${this.path}/posts`, {
             method: "POST",
@@ -91,7 +86,8 @@ class Api {
             body: JSON.stringify(body)
         }).then(responseHandler);
     }
-    editPost(body) {
+
+    editPost(id, body) {
         return fetch(`${this.path}/posts/${id}`, {
             method: "PATCH",
             headers: {
@@ -101,6 +97,36 @@ class Api {
             body: JSON.stringify(body)
         }).then(responseHandler);
     }
+
+    deletePost(id, body) {
+        return fetch(`${this.path}/posts/${id}`, {
+            method: "DELETE",
+            headers: {
+                "authorization": `Bearer ${this.token}`,
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify(body)
+        }).then(responseHandler);
+    }
+
+    setComment(id, body) {
+        return fetch(`${this.path}/posts/comments/${id}`, {
+            method: "POST",
+            headers: {
+                "authorization": `Bearer ${this.token}`,
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify(body)
+        }).then(responseHandler);
+    }
+    getComments(id) {
+        return fetch(`${this.path}/posts/comments/${id}`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        }).then(responseHandler);
+    }
+
 }
 
 const config = {

@@ -1,0 +1,8 @@
+.button__send{
+    background-color: rgba(0,0,0,.1);
+    width: 74px;
+    height: 74px;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}

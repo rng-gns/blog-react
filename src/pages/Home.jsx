@@ -11,8 +11,6 @@ const Home = () => {
             <div style={{display:"grid", gap: "20px"}}>
                 <BannerContainer cards={[b1]} />
                 <BannerContainer  cards={[b2, b3]} />
-                {/*<BannerContainer  cards={[b4, b5]} />*/}
-                {/*<BannerContainer cards={[b1]} />*/}
             </div>
         </>
 

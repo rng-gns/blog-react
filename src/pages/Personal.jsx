@@ -3,10 +3,9 @@ import "./index.css";
 import api from "../Api";
 import icFav from "../assets/like_fill.svg";
 import {Link} from "react-router-dom";
-import CreatePost from "./CreatePost";
+import CreatePost from "../components/CreatePost";
 
-
-const Personal = ({likes, updFav}) => {
+const Personal = ({likes, updFav, updMyPosts, myPosts}) => {
 
     const [info, setInfo] = useState([]);
     const [name, changeName] = useState("");
@@ -28,6 +27,7 @@ const Personal = ({likes, updFav}) => {
             //updateCards(data);
             // updateCards(data);
             updFav(data.filter(el => el.likes.includes(user)));
+            updMyPosts(data.filter(el => el.author._id === user))
         });
     }, []);
 
@@ -37,8 +37,8 @@ const Personal = ({likes, updFav}) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundColor: "#fff",
-        width: "200px",
-        height: "200px",
+        width: "250px",
+        height: "250px",
         padding: "40px calc(50% - 696px)"
     }
 
@@ -62,16 +62,10 @@ const Personal = ({likes, updFav}) => {
         <div className="info-container">
             <h1>Личный кабинет пользователя</h1>
             <div className="avatar" style={st}></div>
-            <div>Избранное
-                <Link to="/favorites">
-                    <img className="likes" src={icFav} alt="Избранные посты"/>
-                    {likes}
-                </Link>
+            <div className="profile__links">
+                <Link to="/favorites" className="personal-favorites">Избранное <span>({likes})</span></Link>
+                <Link to="/my-posts" className="personal-myPosts" >Мои посты <span>({myPosts.length})</span></Link>
             </div>
-
-                <Link to="/MyPosts">Мои посты</Link>
-
-
 
             <form id="info" onSubmit={handler}>
 

@@ -1,17 +1,15 @@
 
-import React, {useState, useEffect} from "react";
-import Main from "../components/Main"
-import Posts from "../components/Posts";
+import React, {useState, useEffect, useContext} from "react";
 import Card from "../components/Card";
 import {usePagination} from "../hooks";
 import api from "../Api";
+import {PostCtx} from "../components/context/PostContext";
 
 
-
-const Catalog = ({searchText, setCnt, searchCnt, updFav}) => {
+const Catalog = ({updFav, updMyPosts}) => {
+    const {posts, text, search} = useContext(PostCtx);
     const [cards, updateCards]= useState([]);
-    //const [posts, updatePosts] = useState(cards);
-    const pageData = usePagination(cards, 20);
+    const pageData = usePagination(search(posts,text), 20);
     const [page, setPage] = useState(1);
 
     function setPagination(n) {
@@ -37,6 +35,7 @@ const Catalog = ({searchText, setCnt, searchCnt, updFav}) => {
             updateCards(data);
             //updatePosts(data);
             updFav(data.filter(el => el.likes.includes(user)));
+            updMyPosts(data.filter(el => el.author._id === user))
         });
 
     }, []);
@@ -62,7 +61,7 @@ const Catalog = ({searchText, setCnt, searchCnt, updFav}) => {
     return (
         <>
             <h1 className="catalog">Каталог постов</h1>
-            {searchText && <div className='search__item'>По запросу <strong>{searchText}</strong> {searchDescription(searchCnt)} </div>}
+            {text && <div className='search__item'>По запросу <strong>{text}</strong> {searchDescription(search(posts,text).length)} </div>}
             <div className="page-container">
                 {setPagination(pageData.maxPage)}
             </div>
@@ -81,6 +80,7 @@ const Catalog = ({searchText, setCnt, searchCnt, updFav}) => {
                         created={el.created_at}
                         tags={el.tags}
                         likes={el.likes}
+                        comments={el.comments}
                     />
                     // </Link>
                 ))}

@@ -1,0 +1,41 @@
+.modal-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1010;
+    background: rgba(0,0,0,.5);
+
+}
+.modal-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 600px;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    /* отступы при необходимости */
+    padding: 20px 50px 20px 20px;
+
+    /* прокрутка */
+    overflow: auto;
+}
+.form-modal {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2px;
+            font-family: sans-serif;
+            gap: 4px;
+            margin-top: 2px;
+}
+.modal-name {
+    margin: 2px;
+}
+label {
+    color: green;
+}

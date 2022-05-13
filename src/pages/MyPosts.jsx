@@ -1,15 +1,16 @@
 import React, {useContext} from "react";
-import {FavCtx} from "../components/context/FavoritesContext";
+import {MyPostsCtx} from "../components/context/MyPostsContext";
 import Card from "../components/Card";
 
 export default () => {
-    const {favorites} = useContext(FavCtx);
+    const {myPosts}= useContext(MyPostsCtx);
 
     return (
         <div>
-            <h1 className="favorites">Избранное</h1>
+            <h1 className="MyPosts">Мои посты</h1>
             <div className="cards-container">
-                {favorites.map(el =>                     <Card
+                {myPosts.map(el =>
+                    <Card
                     text={el.text}
                     id={el._id}
                     key={el._id}

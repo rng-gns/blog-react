@@ -1,0 +1,28 @@
+.comment-container {
+    border-top: 1px solid #dadada;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 60%;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.comment_detail {
+    display: grid;
+    grid-auto-rows: 1fr 4fr 1fr;
+}
+
+.comment__author {
+    font-size: 0.9em;
+    align-self: end;
+}
+
+.comment__text {
+    align-self: center;
+}
+
+.comment__created{
+    font-size: 0.9em;
+    align-self: end;
+}

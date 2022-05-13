@@ -4,8 +4,9 @@ import "./index.css"
 import api from "../Api";
 import {FavCtx} from "../components/context/FavoritesContext";
 import {UserCtx} from "../components/context/UserContext";
-import likeTrue from "../assets/like_stroke.svg";
-import likeFalse from "../assets/like_fill.svg";
+import Comments from "../components/Comments";
+import {mdiHeart, mdiHeartOutline} from '@mdi/js'
+import Icon from "@mdi/react";
 
 const Post = (props) => {
     let {id} = useParams();
@@ -24,12 +25,13 @@ const Post = (props) => {
     },[]);
     const likeHandler = (e) => {
         e.stopPropagation();
-        setLike(!like);
-        // console.log(like);
-        api.setPostLike(props.id, like)
-            .then(ans => {
-                console.log(ans);
-                setFavorites(ans);
+
+        api.setPostLike(id, like)
+            .then(data => {
+                const iLike = data.likes.includes(user);
+                setLike(iLike)
+                setPost(data)
+                setFavorites(data);
             });
     }
     const st = {
@@ -39,7 +41,10 @@ const Post = (props) => {
         backgroundRepeat: "no-repeat",
         backgroundColor: "#fff",
         width: "100%",
-        height: "400px"
+        height: "600px"
+    }
+    const formatDate = function (date){
+        return new Date(date).toLocaleString()
     }
 
     return (
@@ -51,20 +56,29 @@ const Post = (props) => {
                 </div>
                 <div className="page-details">
                     {post.author !== undefined && <div className="post-author">Автор поста: {post.author.name}</div>}
-                    {post.likes !== undefined && <div className="post-like_count" >{post.likes.length}</div>}
-                    {<img className="post_like_icon" src={like ? likeTrue : likeFalse} onClick={likeHandler}/>}
-                    <div className="post-tags">{post.tags}</div>
-                    <div className="post-created">Дата публикации: {post.created_at}</div>
+                    {post.likes !== undefined && <div className="post_like_icon" onClick={likeHandler}>
+                        <Icon path={like ? mdiHeart : mdiHeartOutline}
+                              title="Лайки"
+                              size={1}
+                              color="grey"
+                        />
+                        <span>{post.likes.length}</span>
+                    </div>}
+
+
+                    {post.tags !== undefined &&
+                        <div className="post-tags">{post.tags.map(tag => <span className="tag-item">{tag.trim()}</span>)}</div>
+                    }
+
+                    <div className="post-created">Дата публикации: {formatDate(post.created_at)}</div>
                 </div>
                 <div className="post-text">
                     <p>{post.text}</p>
                 </div>
+                <Comments id={id}/>
 
 
             </div>
-
-
-
 
 
         </>

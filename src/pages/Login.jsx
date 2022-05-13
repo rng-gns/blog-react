@@ -30,11 +30,11 @@ const Login = ({login}) => {
         <>
             <h1 className="text_center">Вход в личный кабинет</h1>
             <form id="page__login" onSubmit={handler}>
-                <div className="form">
+                <div className="form-login">
                     <label htmlFor="email">Email</label>
                     <input className="email" type="email" name="email" placeholder="email" id="email" required value={val} onInput={e => changeVal(e.target.value)}/>
                 </div>
-                <div className="form">
+                <div className="form-login">
                     <label htmlFor="password">Пароль</label>
                     <input className="password" type="password" name="password" placeholder="Пароль" id="password" required value={pwd} onInput={e => changePwd(e.target.value)}/>
                 </div>

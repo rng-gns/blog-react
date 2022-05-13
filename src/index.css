@@ -9,12 +9,9 @@ html {
 body {
 	font-family: "Nunito", "Arial", "Helvetica", sans-serif;
 }
+label{
+	color: darkblue!important;
+}
 
-/*.container {*/
-/*	padding: 20px calc(50% - 500px);*/
-/*	display: grid;*/
-/*	grid-template-columns: repeat(3, 1fr);*/
-/*	gap: 40px;*/
-/*}*/
 
 

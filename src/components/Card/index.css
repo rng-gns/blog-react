@@ -4,7 +4,7 @@
     box-shadow: 2px 2px 10px 0 #0008;
     display: grid;
     gap: 5px;
-    height: 500px;
+    height: 550px;
     width: 300px;
     cursor: pointer;
     position: relative;
@@ -13,7 +13,8 @@
 .card__image {
     height: 200px;
     background-color: lightpink;
-    margin-top: 25px;
+    margin-top: 32px;
+    max-width: calc(300px - 32px);
 }
 .card__title {
     font-weight: bold;
@@ -29,23 +30,44 @@
     overflow: hidden;
 }
 
+.card__tags{
+    max-width: calc(300px - 32px);
+    flex-wrap: wrap;
+    /*display: flex;*/
+    gap: 8px;
+}
+
 .read {
     color: deepskyblue;
+    padding: 18px;
 }
-.card_like {
+
+.card_like span, .comments__count span {
+    line-height: 2em;
+}
+
+.card_like, .comments__count {
     position: absolute;
     top: 15px;
-    right: 15px;
     z-index: 1;
+    align-items: center;
+    display: flex;
 }
-.edit {
+
+.comments__count {
+    right: 15px;
+}
+.card_like {
+    right: 70px;
+}
+.edit-post {
     color: green;
+    padding-left: 20px;
 }
-.card__tags {
-    border-style: solid; /* Стиль рамки вокруг параграфа */
-    border-width: 1px 1px 1px 1px; /* Толщина границы */
-    padding: 7px;
-    background-color: cyan;
+
+.delete-post {
+    color: red;
+    padding-left: 20px;
 }
 
 

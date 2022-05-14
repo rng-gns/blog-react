@@ -99,7 +99,7 @@ const  Card = (props)=> {
             <div className="card__created">{formatDate(props.created)}</div>
 
             {props.tags !== undefined &&
-                <div className="card__tags">{props.tags.map(tag => <span className="tag-item">{tag.trim()}</span>)}</div>
+                <div className="card__tags">{props.tags.map(tag => <span className="tag-item" key={tag}>{tag.trim()}</span>)}</div>
             }
 
 

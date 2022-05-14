@@ -49,19 +49,14 @@ const App = () => {
         }
     }
 
-    useEffect(() => {
-
+/*    useEffect(() => {
         api.getPostList().then(data => {
-            console.log(data);
-            setPosts(data);
-            updateCards(data);
-
+            setPosts(data.sort((a, b) => {b.created_at - a.created_at}));
         });
+    }, []);*/
 
-    }, []);
     const searchHandler = () => {
-        console.log("hello");
-        return posts.filter(el => el.title.toLowerCase().includes(searchText.toLowerCase()));
+        return posts ? posts.filter(el => el.title.toLowerCase().includes(searchText.toLowerCase())) : [];
     }
 
 

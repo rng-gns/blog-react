@@ -7,9 +7,9 @@ import {PostCtx} from "../components/context/PostContext";
 
 
 const Catalog = ({updFav, updMyPosts}) => {
-    const {posts, text, search} = useContext(PostCtx);
+    const {posts, text, search, setPosts} = useContext(PostCtx);
     const [cards, updateCards]= useState([]);
-    const pageData = usePagination(search(posts,text), 20);
+    const pageData = usePagination(search(posts, text), 20);
     const [page, setPage] = useState(1);
 
     function setPagination(n) {
@@ -31,9 +31,7 @@ const Catalog = ({updFav, updMyPosts}) => {
         }
         let user = localStorage.getItem("user");
         api.getPostList().then(data => {
-
-            updateCards(data);
-            //updatePosts(data);
+            setPosts(data.reverse());
             updFav(data.filter(el => el.likes.includes(user)));
             updMyPosts(data.filter(el => el.author._id === user))
         });

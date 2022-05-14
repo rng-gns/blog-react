@@ -21,8 +21,6 @@ const CreatePost = ({showModal, closeModal}) => {
         api.createPost({title: val, text: text, image: img, tags: tagOfStrings}).then(ans => {
             console.log(ans);
             closeModal()
-
-
         });
     }
 

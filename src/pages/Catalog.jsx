@@ -68,8 +68,7 @@ const Catalog = ({updFav, updMyPosts}) => {
 
             <div className="cards-container">
                 {pageData.current().map(el => (
-                    // <Link to={"/product/" + el._id} key={el._id}>
-                    // <Card key={el._id} {...el} />
+
                     <Card
                         text={el.text}
                         id={el._id}
@@ -82,7 +81,7 @@ const Catalog = ({updFav, updMyPosts}) => {
                         likes={el.likes}
                         comments={el.comments}
                     />
-                    // </Link>
+
                 ))}
             </div>
             <div className="page-container">

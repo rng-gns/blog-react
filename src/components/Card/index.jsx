@@ -1,8 +1,6 @@
 import React, {useContext, useState} from "react";
 import {Link} from 'react-router-dom';
 import "./index.css";
-import likeTrue from "../../assets/like_stroke.svg";
-import likeFalse from "../../assets/like_fill.svg";
 import {useNavigate} from "react-router-dom";
 import {UserCtx} from "../context/UserContext";
 import {FavCtx} from "../context/FavoritesContext";
@@ -24,9 +22,8 @@ const  Card = (props)=> {
     const {setMyPosts} = useContext(MyPostsCtx);
     const {user}= useContext(UserCtx)
     const [like, setLike]= useState(props.likes.includes(user));
-    //console.log(props.likes.includes(user));
     const [showModal, changeModalShow] = useState(false);
-    //const [updatedPost, setUpdatedPost] = useState();
+
 
     const navigate = useNavigate();
     const likeHandler = (e) => {

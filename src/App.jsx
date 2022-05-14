@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import {Routes, Route, Link} from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Main from "./components/Main";
-import Card from "./components/Card";
 import Catalog from "./pages/Catalog";
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";

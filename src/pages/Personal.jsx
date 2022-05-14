@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 import api from "../Api";
-import icFav from "../assets/like_fill.svg";
 import {Link} from "react-router-dom";
 import CreatePost from "../components/CreatePost";
 
